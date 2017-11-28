@@ -1,0 +1,6 @@
+<td><%= post.users.first.nickname %></td>
+<td><%= video_tag(post.movie_url, controls: true, height: '300') %></td>
+<td><%= post.description %></td>
+<td><%= link_to 'Show', post %></td>
+<td><%= link_to 'Edit', edit_post_path(post) %></td>
+<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

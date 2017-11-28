@@ -1,0 +1,7 @@
+- if  user_signed_in?
+  br
+  = link_to "ユーザー一覧", users_path
+  br
+  = link_to "ユーザーマイページ", user_path(current_user)
+  br
+  = link_to "ユーザー検索", search_users_path
