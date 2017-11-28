@@ -7,5 +7,7 @@ class UsersController < ApplicationController
   end
 
   def search
+    params[:search] ||= []
+    @user = User.where("nickname LIKE(?)", "%#{params[:search]}%")
   end
 end
