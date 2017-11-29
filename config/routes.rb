@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    member do
+      get :following, :followers
+    end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :relationships,       only: [:create, :destroy]
 end
