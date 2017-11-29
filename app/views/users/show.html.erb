@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<h2>フォロー情報</h2>
+<%= render 'shared/stats' %>
+<%= render 'follow_form' if user_signed_in? %>
+
 <h1>Posts</h1>
 
 <table>
@@ -12,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% current_user.posts.each do |post| %>
+    <% @user.posts.each do |post| %>
       <tr>
         <%= render partial: "posts/post", locals: { post: post } %>
       </tr>
