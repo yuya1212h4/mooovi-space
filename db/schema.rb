@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20171129104754) do
     t.string "image"
     t.text "description", null: false
     t.string "address"
-    t.float "latitude", limit: 24
-    t.float "longitude", limit: 24
+    t.float "latitude", limit: 53
+    t.float "longitude", limit: 53
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
