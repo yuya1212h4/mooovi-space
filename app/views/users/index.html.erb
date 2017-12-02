@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @user.each do |user| %>
+    <% @users.each do |user| %>
       <tr>
         <td>
           <%= link_to "#{user.nickname}", user_path(user) %>
@@ -30,5 +30,13 @@
 </table>
 
 <br>
+
+<div id="insert"></div>
+</div>
+<div style='width: 800px;'>
+  <div id="map" style='width: 600px; height: 400px;'></div>
+</div>
+<p id="current_result"></p>
+
 
 <%= link_to 'New Post', new_post_path %>
