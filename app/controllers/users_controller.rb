@@ -15,6 +15,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    redirect_to @user
+  end
+
   def search
     params[:search] ||= []
     @user = User.where("nickname LIKE(?)", "%#{params[:search]}%")
@@ -28,4 +38,8 @@ class UsersController < ApplicationController
   #     format.json { render json: @user }
   #   end
   # end
+  private
+  def user_params
+    params.require(:user).permit(:nickname, :image, :description, :address)
+  end
 end
