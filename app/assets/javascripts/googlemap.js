@@ -1,6 +1,9 @@
 $(document).on('turbolinks:load', function() {
 
-var map = initMap();
+$current_url = window.location.href;
+  if ($current_url.match(/\/users/)){
+    var map = initMap();
+  }
 
   // クリックを行うと、現在位置の取得を行う
   $(".current_position").on('click', '#current_position', function() {
