@@ -2,21 +2,22 @@ header.Header
   .Header__body
     div.Header__scroll Scroll Top:
     span#pixcel
-    #modal-open.button-link.modal-syncer{ data-target="modal-01" }
-      | adminサインアップ
-    #modal-01
-      p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
-      = render partial: "admins/registrations/new"
-      = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
-    #modal-overlay
+    .Header__modal
+      #modal-open.button-link.modal-syncer{ data-target="modal-01" }
+        | adminサインアップ
+      #modal-01
+        p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
+        = render partial: "admins/registrations/new"
+        = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
+      #modal-overlay
 
-    #modal-open.button-link.modal-syncer{ data-target="modal-02" }
-      | adminサインイン
-    #modal-02
-      p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
-      = render partial: "admins/sessions/new"
-      = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
-    #modal-overlay
+      #modal-open.button-link.modal-syncer{ data-target="modal-02" }
+        | adminサインイン
+      #modal-02
+        p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
+        = render partial: "admins/sessions/new"
+        = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
+      #modal-overlay
 
 .HeaderMenu
   - if  user_signed_in?
