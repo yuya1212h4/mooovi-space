@@ -78,6 +78,8 @@ GEM
     execjs (2.7.0)
     ffi (1.9.18)
     geocoder (1.4.4)
+    geocomplete_rails (1.7.0)
+      railties (>= 3.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
@@ -227,6 +229,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   geocoder
+  geocomplete_rails
   gmaps4rails
   gon
   jbuilder (~> 2.5)
