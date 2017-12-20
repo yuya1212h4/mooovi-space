@@ -1,33 +1,37 @@
-#modal-open.button-link.modal-syncer{ data-target="modal-01" }
-  | クリックすると、adminサインアップモーダルウィンドウを開きます。
-#modal-01
-  p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
-  = render partial: "admins/registrations/new"
-  = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
-#modal-overlay
+header.Header
+  .Header__body
+    div.Header__scroll Scroll Top:
+    span#pixcel
+    .Header__modal
+      #modal-open.button-link.modal-syncer{ data-target="modal-01" }
+        | adminサインアップ
+      #modal-01
+        p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
+        = render partial: "admins/registrations/new"
+        = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
+      #modal-overlay
 
+      #modal-open.button-link.modal-syncer{ data-target="modal-02" }
+        | adminサインイン
+      #modal-02
+        p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
+        = render partial: "admins/sessions/new"
+        = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
+      #modal-overlay
 
-#modal-open.button-link.modal-syncer{ data-target="modal-02" }
-  | クリックすると、adminサインインモーダルウィンドウを開きます。
-#modal-02
-  p 「閉じる」か「背景」をクリックすると、モーダルウィンドウを終了します。
-  = render partial: "admins/sessions/new"
-  = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
-#modal-overlay
+.HeaderMenu
+  - if  user_signed_in?
+    = link_to "userログアウト", destroy_user_session_path, method: :delete
+  - else
+    = link_to "userサインアップ", new_user_registration_path
+    br
+    = link_to "userログイン", new_user_session_path
 
-
-- if  user_signed_in?
-  = link_to "userログアウト", destroy_user_session_path, method: :delete
-- else
-  = link_to "userサインアップ", new_user_registration_path
-  br
-  = link_to "userログイン", new_user_session_path
-
-- if admin_signed_in?
-  br
-  = link_to "adminログアウト", destroy_admin_session_path, method: :delete
-- else
-  br
-  = link_to "adminサインアップ", new_admin_registration_path
-  br
-  = link_to "adminログイン", new_admin_session_path
+  - if admin_signed_in?
+    br
+    = link_to "adminログアウト", destroy_admin_session_path, method: :delete
+  - else
+    br
+    = link_to "adminサインアップ", new_admin_registration_path
+    br
+    = link_to "adminログイン", new_admin_session_path
