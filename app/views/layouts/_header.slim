@@ -1,4 +1,4 @@
-header.Header
+.Header
   .Header__body
     div.Header__scroll Scroll Top:
     span#pixcel
@@ -19,19 +19,21 @@ header.Header
         = link_to "閉じる", "javascript:void(0)", id:"modal-close", class:"button-link"
       #modal-overlay
 
-.HeaderMenu
-  - if  user_signed_in?
-    = link_to "userログアウト", destroy_user_session_path, method: :delete
-  - else
-    = link_to "userサインアップ", new_user_registration_path
-    br
-    = link_to "userログイン", new_user_session_path
-
-  - if admin_signed_in?
-    br
-    = link_to "adminログアウト", destroy_admin_session_path, method: :delete
-  - else
-    br
-    = link_to "adminサインアップ", new_admin_registration_path
-    br
-    = link_to "adminログイン", new_admin_session_path
+header.HeaderMenu
+  #navToggle
+    div
+      span
+      span
+      span
+  nav
+    ul.HeaderMenu__body
+      - if  user_signed_in?
+        li = link_to "userログアウト", destroy_user_session_path, method: :delete
+      - else
+        li = link_to "userサインアップ", new_user_registration_path
+        li = link_to "userログイン", new_user_session_path
+      - if admin_signed_in?
+        li = link_to "adminログアウト", destroy_admin_session_path, method: :delete
+      - else
+        li = link_to "adminサインアップ", new_admin_registration_path
+        li = link_to "adminログイン", new_admin_session_path
