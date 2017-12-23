@@ -31,6 +31,19 @@
     <%= f.text_area :description, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.fields_for :addresses, resource.addresses.build do |g| %>
+      <%= g.label :zipcode, "郵便番号" %>
+      <%= g.text_field :zipcode %><br  />
+      <%= g.label :city, "都道府県" %>
+      <%= g.text_field :city %><br  />
+      <%= g.label :street, "市町村番" %>
+      <%= g.text_field :street %><br  />
+      <%= g.label :tel, "電話番号" %>
+      <%= g.text_field :tel %><br  />
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
